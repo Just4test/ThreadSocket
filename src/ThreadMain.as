@@ -9,7 +9,6 @@ import core.events.TimerEvent;
 import core.system.System;
 import core.system.Worker;
 import core.system.WorkerDomain;
-import core.utils.Timer;
 import utils.ThreadSocket;
 
 
@@ -18,7 +17,6 @@ import utils.ThreadSocket;
  */
 public class ThreadMain extends DisplayObjectContainer
 {
-	protected var timer:Timer;
     public function ThreadMain(args:String = ''):void
     {
 		immediateMode = true;
