@@ -106,6 +106,12 @@ package utils
 			}
 		}
 		
+		/**
+		 * 创建一个ThreadSocket
+		 * @param vTimer 虚拟Timer。对于主线程，它是一个Timer；
+		 * <br>对于子线程，由于无法使用Timer，它是一个会每隔一段时间派发TimerEvent.TIMER事件的对象。
+		 * 
+		 */
 		public function ThreadSocket(vTimer:EventDispatcher = null)
 		{
 			//确认Timer
@@ -156,12 +162,10 @@ package utils
 		 */
 		/**
 		 *开始侦听连接。
-		 * 与Socket协议不同，连接时无法指定端口号。
-		 * 連接成功後將停止偵聽，并拋出連接成功事件
-		 * @param simulateTimer 如果要在子線程中使用，請提供一個虛擬計時器。
-		 * <br>該計時器只要每間隔一段時間拋出TimerEvent.TIMER事件即可。
-		 * 
-		 * 过程：
+		 * <br>与Socket协议不同，连接时无法指定端口号。
+		 * <br>連接成功後將停止偵聽，并拋出連接成功事件
+		 * <br>
+		 * <br>过程：
 		 * <br>监听端S决定连接端口，在该端口放置Mutex连接标识、S2C缓冲区、S2C读写锁，在LISTENING放置端口号
 		 * <br>连接端C检测LISTENING指定的端口号，并尝试锁定指定端口的Mutex。
 		 * <br>如果C成功锁定了指定端口的Mutex，则在该端口上放置C发送S接收缓冲区。C抛出连接成功事件。

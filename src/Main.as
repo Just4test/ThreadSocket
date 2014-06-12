@@ -57,7 +57,6 @@ package
 			trace("主线程index：", WorkerDomain.current.listWorkers().indexOf(Worker.current));
 			trace(WorkerDomain.current.listWorkers()[1].state);
 			System.sleep(1000);
-			trace("主线程index：", WorkerDomain.current.listWorkers().indexOf(Worker.current));
 			trace(EventDispatcher.immediateMode);
 			
 			var ts:ThreadSocket = new ThreadSocket;
